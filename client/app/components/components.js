@@ -7,6 +7,7 @@ import Signup from './signup/signup';
 import ResetPassword from './resetPassword/resetPassword';
 import Sidebar from './sidebar/sidebar';
 import User from './user/user';
+import NewTrip from './newTrip/newTrip';
 
 let componentModule = angular.module('app.components', [
     MasterPage.name,
@@ -17,6 +18,7 @@ let componentModule = angular.module('app.components', [
     ResetPassword.name,
     Sidebar.name,
     User.name,
+    NewTrip.name,
 ]);
 
 export default componentModule;
