@@ -1,0 +1,13 @@
+<ion-view view-title="User Profile" class="gray-bg">
+    <ion-content ng-switch="vm.isLoggedIn">
+        <div ng-switch-when="true" ows-notifier="vm.isAtInfoPage" ows-notify-interval="100">
+            <user-form-info/>
+        </div>
+        <div ng-switch-when="false">
+            <div class="news_box">
+                <p>Bạn cần phải đăng nhập để xem thông tin này!</p>
+                <div class="button button-positive" ui-sref="app.login">Đăng nhập</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

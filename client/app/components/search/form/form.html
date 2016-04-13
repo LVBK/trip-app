@@ -1,0 +1,101 @@
+<ion-scroll class="home-scroll ga-component">
+    <div class="search-row row">
+        <div class="button search-row-button col-50"
+             ng-click="vm.priceBox = true; advancedBox = false;"
+             ng-class="{'actived' : vm.priceBox }">
+		<span class="search-button-title text-center">Price Range
+		</span>
+
+        </div>
+        <div class="button search-row-button col-50 " ng-class="{'actived' : advancedBox}"
+             ng-click="advancedBox = true; vm.priceBox = false">
+		<span class="search-button-title text-center">
+		Advanced search
+		</span>
+        </div>
+
+    </div>
+    <div class="element-box" ng-show="vm.priceBox">
+        <div class='criteria-search'>
+            <h5 class="criteria-search-title">
+                Mức giá truy vấn:
+            </h5>
+            <ul>
+
+                <li class="rangeBoxLi least-list actived" menu-close ng-class="{'none-actived' : !vm.leatBox}"
+                    ng-click="vm.leatBox =true; mediumBox =false ; biggestBox =false;
+				vm.gymSearch({'profile.price':{$lt:100000}}) ">
+                    Dưới 100,000
+                </li>
+                <li class="select-box-hr"></li>
+                <li class="rangeBoxLi medium-list actived" ng-class="{'none-actived' : !mediumBox}"
+                    ng-click="mediumBox =true; biggestBox =false ;vm.leatBox =false;
+					  vm.gymSearch({'profile.price':{$lte:200000,$gte:100000}})">
+                    100,000 - 200,000
+                </li>
+                <li class="select-box-hr"></li>
+                <li class="rangeBoxLi biggest-list actived" ng-class="{'none-actived' : !biggestBox}"
+                    ng-click="biggestBox =true ;vm.leatBox =false; mediumBox =false ;
+					 vm.gymSearch({'profile.price':{$gt:200000}})">
+                    Trên 200,000
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="element-box" ng-show="advancedBox">
+        <div class='criteria-search'>
+            <h5 class="criteria-search-title">Loại hình dịch vụ
+            </h5>
+            <ion-list class="feature-content">
+                <div class="feature-item" ng-repeat="(key, value) in ::vm.serviceList track by key">
+                    <ion-checkbox class="checkbox-label checkbox-float" ng-model="vm.servicesFields[$index]['searchValue']"
+                                  ng-change="vm.advancedSearch()">
+                        <i class="thumb ga-icon ga-icon-draw-{{::key}}"/>
+                        <h6 class="width-100 p-h-xs text-thin text-sm">{{::value}}</h6>
+                    </ion-checkbox>
+                </div>
+            </ion-list>
+        </div>
+        <div class='criteria-search'>
+            <h5 class="criteria-search-title">Tiện ích đi kèm
+            </h5>
+            <ion-list class="feature-content">
+                <div class="feature-item" ng-repeat="(key, value) in ::vm.convenientList track by key">
+                    <ion-checkbox class="checkbox-label checkbox-float" ng-model="vm.convenientFields[$index]['searchValue']"
+                                  ng-change="vm.advancedSearch()">
+                        <i class="thumb ga-icon ga-icon-draw-{{::key}}"/>
+                        <h6 class="width-100 p-h-xs text-thin text-sm">{{::value}}</h6>
+                    </ion-checkbox>
+                </div>
+            </ion-list>
+        </div>
+        <div class=" row row-no-padding search-button ">
+        </div>
+    </div>
+
+    <div class="element-box search-result kind-gyms">
+        <p class="search-result-title">Result</p>
+
+        <div class="result-box" ng-repeat="item in vm.searchResutlData.searchData track by item._id">
+            <a class="item item-thumbnail-left none-border" ui-sref="app.gymDetail(::{gymId: item._id})">
+                <img ng-src="{{::vm.GeneralService.getThumbnailUrl(item.profile.listImage[0])}}">
+
+                <div class="home-gym-title">
+                    <span class="home-gym-name">{{::item.profile.name}}</span>
+                    <span class="home-gym-icon icon_price">{{::item.profile.price | number}}/day</span>
+                </div>
+                <p>{{::item.profile.description | limitTo: 70}}</p>
+            </a>
+        </div>
+        <!--<div class="news_box" >-->
+        <!--<p>Không có phòng tập nào phù hợp.</p>-->
+        <!--<p>Bấm vào HOME để quay lại trang chủ! </p>-->
+
+        <!--<div class="button button-assertive" ui-sref="app.home">Home</div>-->
+        <!--</div>-->
+        <ion-infinite-scroll class="bottom-padding-none" icon="ion-loading-c" ng-if="!vm.noMoreItemAvailable"
+                             on-infinite="vm.getMore()" distance="1%"></ion-infinite-scroll>
+    </div>
+</ion-scroll>
+

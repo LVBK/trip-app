@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tập chung</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="cordova.js"></script>
+    <script src="config.js"></script>
+    <script src="meteor/meteor-client-all-packages.min.js"></script>
+    <script src="meteor/collections.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    //FB SDK for web
+    (function () {
+        if (document.location.hostname == 'localhost' ||
+                document.location.hostname == 'app.gymapp.dev.ows.vn') {
+            document.write('<div id="fb-root"></div>');
+            document.write('<script src="fb_sdk.js"><' + '/script>');
+            document.write('<script src="facebookConnectPlugin.js"></' + 'script>');
+        }
+    }());
+</script>
+<app ows-fast-bind-global-init></app>
+<!-- build:js -->
+<script src="jspm_packages/system.js"></script>
+<script src="jspm.config.js"></script>
+<script>
+    System.import('app/app').catch(console.error.bind(console));
+</script>
+<!-- endbuild -->
+</body>
+</html>

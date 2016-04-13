@@ -1,0 +1,25 @@
+<div class="news_box">
+    <div ng-if="vm.tokenIsValid">
+        <div class="reset_password_title">Confirm Password</div>
+        <div class="row input_email_div">
+            <div class="col col-50 input_label_email">Mật khẩu mới</div>
+            <div class="col col-50 input_email">
+                <input type="password" ng-model="vm.newPassword" required>
+            </div>
+        </div>
+        <div class="row input_email_div">
+            <div class="col col-50 input_label_email">Nhập lại mật khẩu</div>
+            <div class="col col-50 input_email">
+                <input type="password" ng-model="vm.reTypePassword" required >
+            </div>
+        </div>
+        <div class="row button-yesno">
+            <button class="col-33 col-offset-11 button button-assertive" ui-sref="app.home">Cancel</button>
+            <button class="col-33 col-offset-11 button button-balanced" ng-click="vm.resetPassword(vm.newPassword,vm.reTypePassword)">Submit</button>
+        </div>
+    </div>
+    <div  ng-if="!vm.tokenIsValid">
+        <div class="reset_password_title">Token Invalid</div>
+    </div>
+</div>
+

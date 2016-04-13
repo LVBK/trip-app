@@ -1,0 +1,28 @@
+<div class="list card">
+    <div class="item item-divider text-center positive">Reset password</div>
+    <div class="item item-body">
+        <form class="list" ng-submit="vm.confirm_password(vm.email)">
+            <label class="item item-input">
+                <span class="input-label positive">Email</span>
+                <input type="email" placeholder="Enter your rmail here" ng-model="vm.email" required>
+            </label>
+            <div class="list row">
+                <div class="col-50">
+                    <div class="col-90">
+                        <button class="button button-assertive  button-block button-outline" ui-sref="app.home">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+                <div class="col-50">
+                    <div class="col-offset-10 col-90">
+                        <button class="button button-balanced  button-block" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--<loading ng-show="vm.showLoading"></loading>-->

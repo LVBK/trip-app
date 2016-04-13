@@ -1,0 +1,39 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "vn.ows.gymapp.app"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "vn.ows.gymapp.app"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "vn.ows.gymapp.app"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "vn.ows.gymapp.app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "vn.ows.gymapp.app"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "vn.ows.gymapp.app"
+        },
+        "phonegap-facebook-plugin": {
+            "APP_ID": "1576930605962240",
+            "APP_NAME": "tapchungapp",
+            "PACKAGE_NAME": "vn.ows.gymapp.app"
+        },
+        "cordova-plugin-customurlscheme": {
+            "URL_SCHEME": "vnowsgymapp",
+            "PACKAGE_NAME": "vn.ows.gymapp.app"
+        }
+    },
+    "dependent_plugins": {}
+}
